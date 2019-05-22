@@ -31,8 +31,9 @@ app.get('/messages', function(request, response) {
 
 app.get('/messages/:id',function (request,response){
 const inputId = request.params.id;
-messages = messages.filter(msg=>{msg.id == inputId});
-  response.json(messages)
+  console.log(inputId)
+ 
+  response.json(messages.filter(msg=>{msg.id == inputId}))
 })
 
 app.post('/messages',function(request,response){
@@ -45,7 +46,7 @@ app.post('/messages',function(request,response){
 
 app.delete('/messages/:id',function(request,response){
   const msgId = request.params.id;
-  messages = messages.filter(msg=>{msg.id != msgId});
+  const messages = messages.filter(msg=>{msg.id != msgId});
   response.status(204).send('Message Deleted')
 })
 
