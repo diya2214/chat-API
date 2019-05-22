@@ -16,7 +16,7 @@ const welcomeMessage = {
 //This array is our "data store".
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
-const messages = [welcomeMessage]
+const messages = [welcomeMessage,{"from":"madi","text":"hey do we have class this sunday","id":1}]
 
 
 app.get('/', function(request, response) {
@@ -25,7 +25,7 @@ app.get('/', function(request, response) {
 
 
 app.get('/messages', function(request, response) {
-  response.send(welcomeMessage);
+  response.send(messages);
 });
 
 
