@@ -25,13 +25,14 @@ app.get('/', function(request, response) {
 
 
 app.get('/messages', function(request, response) {
-  response.send(messages);
+  response.json(messages);
 });
 
 
-app.get('/messages/?id',function (request,response){
-const inputId = request.prams.id;
-messages = messages.filter(msg=>{msg.id == inputId})
+app.get('/messages/:id',function (request,response){
+const inputId = request.params.id;
+messages = messages.filter(msg=>{msg.id == inputId});
+  response.json(messages)
 })
 
 app.post('/messages',function(request,response){
@@ -43,7 +44,7 @@ app.post('/messages',function(request,response){
 
 
 app.delete('/messages/:id',function(request,response){
-  const msgId = request.prams.id;
+  const msgId = request.params.id;
   messages = messages.filter(msg=>{msg.id != msgId});
   response.status(204).send('Message Deleted')
 })
