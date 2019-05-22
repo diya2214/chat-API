@@ -37,7 +37,11 @@ app.post('/messages',function(request,response){
 })
 
 
-
+app.delete('/messages/:id',function(request,response){
+  const msgId = request.prams.id;
+  messages = messages.filter(msg=>{msg.id != msgId});
+  response.status(204).send('Message Deleted')
+})
 
 
 
