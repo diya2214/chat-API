@@ -4,6 +4,8 @@ const cors = require('cors')
 const app = express();
 
 app.use(cors())
+app.use(express.urlencoded({ extended: false }))
+
 
 const welcomeMessage = {
   id: 0,
@@ -27,7 +29,12 @@ app.get('/messages', function(request, response) {
 });
 
 
-
+app.post('/messages',function(request,response){
+  const message = request.body;
+  message.id = messages.length;
+  messages.push(message);
+  response.status(201).json(message);
+})
 
 
 
