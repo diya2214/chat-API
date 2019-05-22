@@ -31,9 +31,11 @@ app.get('/messages', function(request, response) {
 
 app.get('/messages/:id',function (request,response){
 const inputId = request.params.id;
-  console.log(inputId)
+  console.log(messages)
  
-  response.json(messages.filter(msg=>{msg.id == inputId}))
+  response.json(messages.filter(msg=>{
+    console.log (msg)
+    return msg.id == inputId}))
 })
 
 app.post('/messages',function(request,response){
