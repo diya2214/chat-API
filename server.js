@@ -22,6 +22,11 @@ app.get('/', function(request, response) {
 });
 
 
+app.get('/messages', function(request, response) {
+  response.send(welcomeMessage);
+});
+
+
 
 
 
