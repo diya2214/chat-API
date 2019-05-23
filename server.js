@@ -38,6 +38,21 @@ app.get('/messages', function(request, response) {
 
 app.get('/update', function(request, response) {
   
+  // read id, from and text in from the query strings i.e request.query.id
+  const msgId = request.query.id;
+  const msgName = request.query.name;
+  const msgText = request.query.text;
+  
+  
+  // if from exists, update messages[i].from
+  
+messages = messages.map(msg=>{
+  if (msg.id === msgId && msgName){
+    return msg.text = 
+  }
+})
+  // if text exists, update messages[i].text
+
   
   response.json(messages);
 });
