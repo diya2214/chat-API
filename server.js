@@ -44,9 +44,10 @@ const inputId = request.params.id;
 })
 
 app.get('/messages/search',function (request,response){
-const term = request.;
+const term = request.query.term.toLowerCase();
+  console.log(messages);
   
-  response.json(messages.filter(msg=>msg.id == inputId))
+  response.json(messages.filter(msg=>msg.text.includes(term)))
 })
 
 
