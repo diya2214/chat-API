@@ -37,10 +37,13 @@ const inputId = request.params.id;
 
 app.post('/messages',function(request,response){
   const message = request.body;
+if (message.from !="" && message.text !=""){
   message.id = messages.length;
   messages.push(message);
   response.status(201).json(message);
-})
+} else{
+         response.status(400).send('Invalid Data');
+         }})
 
 
 app.delete('/messages/:id',function(request,response){
