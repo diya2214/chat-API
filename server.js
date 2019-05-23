@@ -43,12 +43,11 @@ const inputId = request.params.id;
   response.json(messages.filter(msg=>msg.id == inputId))
 })
 
-app.get('/messages/search?text=cyf',function (request,response){
+app.get('/messages/search',function (request,response){
 const text = request.query.text;
   console.log(text);
   
-  response.send('seerch')
-})
+response.json(messages.filter(msg=>msg.text.includes(text)))})
 
 
 
