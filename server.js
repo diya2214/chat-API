@@ -23,8 +23,14 @@ const welcomeMessage = [{
     from:"johny",
    text:"hello from me ",
    id:3,
-   timeSent":"Thu May 23 2019"
-  }]
+   timeSent:"Thu May 23 2019"
+  },
+   { 
+  id:4,
+  from: "peter",
+   text :"No its a bank holiday"}
+                      
+ ]
 
 
 //This array is our "data store".
@@ -40,6 +46,10 @@ app.get('/', function(request, response) {
 
 app.get('/messages', function(request, response) {
   response.json(messages);
+});
+
+app.get('/latest', function(request, response) {
+  response.json(messages.slice(messages.length-3));
 });
 
 app.get('/update', function(request, response) {
