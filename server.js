@@ -46,15 +46,14 @@ app.get('/update', function(request, response) {
   
   // if from exists, update messages[i].from
   
-messages = messages.map(msg=>{
+response.json(messages.map(msg=>{
   if (msg.id === msgId && msgName){
-    return msg.text = 
+    return ({...msg, from: msgText})
   }
-})
+}))
   // if text exists, update messages[i].text
 
   
-  response.json(messages);
 });
 
 app.get('/messages/search',function (request,response){
