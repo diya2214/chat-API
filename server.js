@@ -55,6 +55,7 @@ app.post('/messages',function(request,response){
   const message = request.body;
 if (message.from !="" && message.text !=""){
   message.id = messages.length;
+  message.timeSent = new Date().getTime();
   messages.push(message);
   response.status(201).json(message);
 } else{
