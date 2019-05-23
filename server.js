@@ -7,16 +7,24 @@ app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
 
-const welcomeMessage = {
+const welcomeMessage = [{
   id: 0,
   from: "Bart",
   text: "Welcome to CYF chat system!"
-}
+},{
+  id: 1,
+  from: "Rosie",
+  text: "When is the next class"
+},{
+  id:2,
+  from: "Madi",
+   text :"Hey do we have class this sunday"}]
+
 
 //This array is our "data store".
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
-const messages = [welcomeMessage,{"from":"madi","text":"hey do we have class this sunday","id":1}]
+const messages = welcomeMessage
 
 
 app.get('/', function(request, response) {
@@ -34,6 +42,14 @@ const inputId = request.params.id;
   
   response.json(messages.filter(msg=>msg.id == inputId))
 })
+
+app.get('/messages/search',function (request,response){
+const term = request.;
+  
+  response.json(messages.filter(msg=>msg.id == inputId))
+})
+
+
 
 app.post('/messages',function(request,response){
   const message = request.body;
