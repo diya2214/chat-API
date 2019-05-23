@@ -48,7 +48,7 @@ app.get('/messages', function(request, response) {
   response.json(messages);
 });
 
-app.get('/latest', function(request, response) {
+app.get('/messages/latest', function(request, response) {
   response.json(messages.slice(messages.length-3));
 });
 
