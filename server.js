@@ -36,18 +36,19 @@ app.get('/messages', function(request, response) {
   response.json(messages);
 });
 
-
-app.get('/messages/:id',function (request,response){
-const inputId = request.params.id;
-  
-  response.json(messages.filter(msg=>msg.id == inputId))
-})
-
 app.get('/messages/search',function (request,response){
 const text = request.query.text;
   console.log(text);
   
 response.json(messages.filter(msg=>msg.text.includes(text)))})
+
+app.get('/messages/id/:id',function (request,response){
+const inputId = request.params.id;
+  
+  response.json(messages.filter(msg=>msg.id == inputId))
+})
+
+
 
 
 
@@ -55,7 +56,7 @@ app.post('/messages',function(request,response){
   const message = request.body;
 if (message.from !="" && message.text !=""){
   message.id = messages.length;
-  message.timeSent = new Date().getTime();
+  message.timeSent = new Date().toDateString();
   messages.push(message);
   response.status(201).json(message);
 } else{
