@@ -18,7 +18,13 @@ const welcomeMessage = [{
 },{
   id:2,
   from: "Madi",
-   text :"Hey do we have class this sunday"}]
+   text :"Hey do we have class this sunday"},
+  {
+    from:"johny",
+   text:"hello from me ",
+   id:3,
+   timeSent":"Thu May 23 2019"
+  }]
 
 
 //This array is our "data store".
