@@ -36,6 +36,12 @@ app.get('/messages', function(request, response) {
   response.json(messages);
 });
 
+app.get('/update', function(request, response) {
+  
+  
+  response.json(messages);
+});
+
 app.get('/messages/search',function (request,response){
 const text = request.query.text;
   console.log(text);
