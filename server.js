@@ -31,6 +31,7 @@ app.get('/messages', function(request, response) {
 
 app.get('/messages/:id',function (request,response){
 const inputId = request.params.id;
+  
   response.json(messages.filter(msg=>msg.id == inputId))
 })
 
