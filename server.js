@@ -24,7 +24,7 @@ const welcomeMessage = [{
 //This array is our "data store".
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
-const messages = welcomeMessage
+const messages = welcomeMessage;
 
 
 app.get('/', function(request, response) {
@@ -43,11 +43,11 @@ const inputId = request.params.id;
   response.json(messages.filter(msg=>msg.id == inputId))
 })
 
-app.get('/messages/search',function (request,response){
-const term = request.query.term.toLowerCase();
-  console.log(messages);
+app.get('/messages/search?text=cyf',function (request,response){
+const text = request.query.text;
+  console.log(text);
   
-  response.json(messages.filter(msg=>msg.text.includes(term)))
+  response.send('seerch')
 })
 
 
