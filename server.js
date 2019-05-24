@@ -81,7 +81,9 @@ app.get('/messages/search',function (request,response){
 const text = request.query.text;
   console.log(text);
   
-response.json(messages.filter(msg=>msg.text.includes(text)))})
+response.json(messages.filter(msg=>msg.text.includes(text)))
+
+})
 
 app.get('/messages/id/:id',function (request,response){
 const inputId = request.params.id;
