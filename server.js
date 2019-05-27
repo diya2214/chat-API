@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
-
+app.use(express.json())
 
 const welcomeMessage = [{
   id: 0,
@@ -97,7 +97,8 @@ const inputId = request.params.id;
 
 app.post('/messages',function(request,response){
   const message = request.body;
-if (message.from !="" && message.text !=""){
+  // test validation with null and empty string
+if (message.from != null && message.text !=null){
   message.id = messages.length;
   message.timeSent = new Date().toDateString();
   messages.push(message);
