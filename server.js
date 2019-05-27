@@ -52,7 +52,7 @@ app.get('/messages/latest', function(request, response) {
   response.json(messages.slice(messages.length-3));
 });
 
-app.get('/update', function(request, response) {
+app.put('/messages/:id', function(request, response) {
   
   // read id, from and text in from the query strings i.e request.query.id
   const msgId = request.query.id;
@@ -61,8 +61,14 @@ app.get('/update', function(request, response) {
   
   
   // if from exists, update messages[i].from
+  // how to update 1 or 2 properties of 1 element of an array
+  // return only the modified object
+response.json('updatedMessage')
+  // if text exists, update messages[i].text
+
   
-response.json(messages.map(msg=>{
+});
+/*messages.map(msg=>{
   if (msg.id.toString() === msgId) {
     const name = msgName || msg.from;
     const text = msgText || msg.text
@@ -71,12 +77,7 @@ response.json(messages.map(msg=>{
   } else {
     return msg
   }
-}))
-  // if text exists, update messages[i].text
-
-  
-});
-
+})*/
 app.get('/messages/search',function (request,response){
 const text = request.query.text;
   console.log(text);
