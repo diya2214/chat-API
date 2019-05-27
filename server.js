@@ -36,7 +36,7 @@ const welcomeMessage = [{
 //This array is our "data store".
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
-const messages = welcomeMessage;
+let messages = welcomeMessage;
 
 
 app.get('/', function(request, response) {
@@ -109,6 +109,8 @@ if (message.from !="" && message.text !=""){
 
 app.delete('/messages/:id',function(request,response){
   const msgId = request.params.id;
+  // use splice notfilter
+  // return 404 if id doesnt exist 
    messages = messages.filter(msg=>msg.id != msgId);
   response.status(204).send('Message Deleted')
 })
