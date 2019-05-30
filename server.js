@@ -90,7 +90,7 @@ app.get('/messages/id/:id',function (request,response){
 const inputId = request.params.id;
   
   response.json(messages.filter(msg=>msg.id == inputId))
-})
+});
 
 
 
