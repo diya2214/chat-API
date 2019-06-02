@@ -55,9 +55,26 @@ app.get('/messages/latest', function(request, response) {
 app.put('/messages/:id', function(request, response) {
   
   // read id, from and text in from the query strings i.e request.query.id
-  const msgId = request.query.id;
-  const msgName = request.query.name;
-  const msgText = request.query.text;
+  // const msgId = request.query.id;
+  // const msgName = request.query.name;
+  // const msgText = request.query.text;
+  
+  /*messages.map(msg=>{
+  if (msg.id.toString() === msgId) {
+    const name = msgName || msg.from;
+    const text = msgText || msg.text
+    
+    return ({...msg, from: name, text: text})
+  } else {
+    return msg
+  }
+})*/
+  const msgId = parseInt(request.prams.id)
+  const newmsg = request.body
+  const getMsg = messages.find(r=> r.id === msgId)
+  if (!getMsg){
+    response.status(404)
+  }
   
   
   // if from exists, update messages[i].from
@@ -68,16 +85,7 @@ response.json('updatedMessage')
 
   
 });
-/*messages.map(msg=>{
-  if (msg.id.toString() === msgId) {
-    const name = msgName || msg.from;
-    const text = msgText || msg.text
-    
-    return ({...msg, from: name, text: text})
-  } else {
-    return msg
-  }
-})*/
+
 app.get('/messages/search',function (request,response){
 const text = request.query.text;
   console.log(text);
