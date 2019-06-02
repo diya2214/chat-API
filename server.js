@@ -69,20 +69,19 @@ app.put('/messages/:id', function(request, response) {
     return msg
   }
 })*/
-  const msgId = parseInt(request.prams.id)
+  const msgId = parseInt(request.params.id)
   const newmsg = request.body
   const getMsg = messages.find(r=> r.id === msgId)
   if (!getMsg){
-    response.status(404)
+    return response.status(404)
   }
+  getMsg.text = newmsg.text
   
-  
+  response.json(getMsg)
+  // if text exists, update messages[i].text
   // if from exists, update messages[i].from
   // how to update 1 or 2 properties of 1 element of an array
   // return only the modified object
-response.json('updatedMessage')
-  // if text exists, update messages[i].text
-
   
 });
 
