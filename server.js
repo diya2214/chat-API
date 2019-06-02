@@ -75,7 +75,8 @@ app.put('/messages/:id', function(request, response) {
   if (!getMsg){
     return response.status(404)
   }
-  getMsg.text = newmsg.text
+  console.log(newmsg)
+getMsg.text = request.body.text
   
   response.json(getMsg)
   // if text exists, update messages[i].text
